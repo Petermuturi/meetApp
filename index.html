@@ -5,12 +5,17 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<title>MeetApp</title>
+		<link rel="icon" type="image/png" href="img/icon.png">
 		<link rel="stylesheet" type="text/css" href="css/events.css"/>
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 		<link rel="stylesheet" type="text/css" href="css/content.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<script src="js/modernizr.custom.js"></script>
+		<script type="text/javascript" src="js/events.js"></script>
+		 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 	</head>
 	<body style="background-image: url(img/bg.jpg);
 	background-size: cover;background-position:center;background-repeat:no-repeat;">
@@ -28,9 +33,10 @@
 									<span class="icon icon-close">Close the dialog</span>
 									<h2>Sign Up</h2>
 									<form>
-										<p><label>Email</label><input type="text" /></p>
+										<p><label>First Name</label><input type="text" /></p>
+										<p><label>Last Name</label><input type="text" /></p>
+										<p><label>Email</label><input type="email" /></p>
 										<p><label>Password</label><input type="password" /></p>
-										<p><label>Repeat Password</label><input type="password" /></p>
 										<p><button>Sign Up</button></p>
 									</form>
 								</div>
@@ -55,11 +61,71 @@
 							</div>
 						</div>
 					</div><!-- morph-button -->
+					<div class="skip"><a class="now" href="#">Skip for now <i class="fa fa-chevron-right" style="font-size:14px;"></i></a></div>
 					</div>
+
 			</section>
 			</div>
 		<script src="js/classie.js"></script>
 		<script src="js/uiMorphingButton_fixed.js"></script>
+		<script type="text/javascript">
+   Parse.initialize("jcvmgGCTmx98cxkatcNZ7tmsMyAUPPb0ttsIhXJM", "rFqh6vz2f16xlNindyi0xnzsRa8UPjyzCWF1xe40");
+  
+    angular.module('AuthApp', [])
+.run(['$rootScope', function($scope) {
+  $scope.scenario = 'Sign up';
+  $scope.currentUser = Parse.User.current();
+  
+  $scope.signUp = function(form) {
+     var user = new Parse.User();
+user.set("username", form.username);
+user.set("email", form.email);
+user.set("phone", form.phone);
+user.set("password", form.password);
+    
+    user.signUp(null, {
+      success: function(user) {
+        $scope.currentUser = user;
+        $scope.$apply();
+      },
+      error: function(user, error) {
+        alert("Unable to sign up:  " + error.code + " " + error.message);
+      }
+    });    
+  };
+  
+  $scope.logIn = function(form) {
+    Parse.User.logIn(form.username, form.password, {
+      success: function(user) {
+        $scope.currentUser = user;
+        $scope.$apply();
+      },
+      error: function(user, error) {
+        alert("Unable to log in: " + error.code + " " + error.message);
+      }
+    });
+  };
+  
+  $scope.logOut = function(form) {
+    Parse.User.logOut();
+    $scope.currentUser = null;
+
+  };
+}]);
+
+
+// other fields can be set just like with Parse.Object
+  
+user.signUp(null, {
+  success: function(user) {
+    // Hooray! Let them use the app now.
+  },
+  error: function(user, error) {
+    // Show the error message somewhere and let the user try again.
+    alert("Error: " + error.code + " " + error.message);
+  }
+});
+</script>
 		<script>
 			(function() {
 				var docElem = window.document.documentElement, didScroll, scrollPosition;
