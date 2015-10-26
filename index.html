@@ -38,8 +38,8 @@
 									<span class="icon icon-close">X</span>
 									<h2>Create your account</h2>
 									<form ng-show="scenario == 'Sign up'" name="signup" action="" onSubmit="return validation_for_signup()" method="post">
-									First Name: <input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="firstname" type="text" class="validate" name="firstname"  value="" ng-model="user.firstname" size="50">
-								Last Name: <input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="lastname" type="text" class="validate" name="lastname"  value="" ng-model="user.lastname" size="50">
+									Username: <input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="firstname" type="text" class="validate" name="firstname"  value="" ng-model="user.firstname" size="50">
+								Phone Number: <input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="phone" type="text" class="validate" name="phone"  value="" ng-model="user.phone" size="50">
 										Email: <input style="color: #4F002F;" id="email" type="email" class="validate" name="email"  value="" ng-model="user.email" size="50">
 								Password:<input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="password" type="password" class="validate" name="password"  value="" ng-model="user.password">
 								<input class="sbt"  value="Sign up" type="submit" class="sign" ng-click="signUp(user)"/>
@@ -57,7 +57,7 @@
 									<span class="icon icon-close">X</span>
 									<h2>Welcome Back</h2>
 									<form ng-show="scenario == 'Sign up'" name="signup" action="" onSubmit="return validation_for_signup()" method="post">
-							Email: <input style="color: #4F002F;" type="email" ng-model="user.email" /><br />
+							Username: <input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" type="text" ng-model="user.username" /><br />
      Password:<input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="password" type="password" class="validate" name="password"  value="" ng-model="user.password">
 						<input class="sbt" value="login" ng-click="logIn(user)" class="sign" type="submit"/>
 									</form>
@@ -91,7 +91,7 @@
   $scope.signUp = function(form) {
      var user = new Parse.User();
 user.set("username", form.firstname);
-user.set("lastname", form.lastname);
+user.set("phone", form.phone);
 user.set("email", form.email);
 user.set("password", form.password);
     
@@ -107,7 +107,7 @@ user.set("password", form.password);
   };
   
   $scope.logIn = function(form) {
-    Parse.User.logIn(form.email, form.password, {
+    Parse.User.logIn(form.username, form.password, {
       success: function(user) {
         $scope.currentUser = user;
         $scope.$apply();

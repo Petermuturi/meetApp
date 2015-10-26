@@ -4,6 +4,7 @@
 }
 .layer{
 	background-color: rgba(0,0,0,0.5);
+	background-size: cover;
 	padding-bottom: 150px;
 }
 .skip{
@@ -31,4 +32,5 @@ background-color: rgba(0,0,0,0.5);
 	color:black;
 	background-color: rgba(255,255,255,0.5);
 	padding-bottom: 30px;
+	margin-bottom: 100px;
 }
