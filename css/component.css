@@ -10,8 +10,6 @@
 	position: relative;
 	padding: 0 1em;
 	border: none;
-	background-color: #e85657;
-	color: #f9f6e5;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 700;
@@ -160,9 +158,6 @@
 }
 
 /* Colors and sizes for individual modals */
-.morph-button.morph-button-modal-1 {
-	float: left;
-}
 
 .morph-button.morph-button-modal-2,
 .morph-button.morph-button-modal-3 {
@@ -170,54 +165,21 @@
 	margin: 10px 15px;
 }
 
-.morph-button-modal-1 > button,
-.morph-button-modal-1 .morph-content {
-	background-color: #553445;
-}
 
 .morph-button-modal-2 > button,
+
+.morph-button-modal-3 > button{
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	border-radius: 10px;
+	border: 1px solid white;
+}
+
 .morph-button-modal-2 .morph-content,
-.morph-button-modal-3 > button,
 .morph-button-modal-3 .morph-content {
-	background-color: #fef0e3;
-	color: #e75854;
-}
-
-.morph-button-modal-4 {
-	display: inline-block;
-}
-
-.morph-button-modal-4 > button,
-.morph-button-modal-4 .morph-content {
-	background-color: #faf1e0;
-	color: #553445;
-}
-
-.morph-button-modal-4 > button span,
-.morph-button-modal-4 .morph-clone {
-	padding-left: 10px;
-	color: #286f81;
-}
-
-.morph-button-modal-4 .morph-clone {
-	position: absolute;
-	right: 34px;
-	bottom: 30px;
-	z-index: 100;
-	letter-spacing: 1px;
-	font-weight: 700;
-	-webkit-transition: bottom 0.4s 0.1s, right 0.4s 0.1s;
-	transition: bottom 0.4s 0.1s, right 0.4s 0.1s;
-}
-
-.morph-button-modal-4.open .morph-clone,
-.no-js .morph-button-modal-4 .morph-clone {
-	right: 10px;
-	bottom: 10px;
-}
-
-.morph-button-modal-1::before {
-	background: rgba(240,221,204,0.7);
+  background-color: white;
+  font-size: 14px;
+  color: black;
 }
 
 .morph-button-modal-2.open .morph-content {
@@ -240,12 +202,6 @@
 .morph-button-modal-3.open .morph-content > div {
  	-webkit-transition: opacity 0.3s 0.3s;
 	transition: opacity 0.3s 0.3s;
-}
-
-.morph-button-modal-4.open .morph-content {
-	margin: -200px 0 0 -320px;
-	width: 640px;
-	height: 400px;
 }
 
 /* Morph Button Style: In the content flow */
@@ -382,50 +338,6 @@
 	overflow: auto;
 }
 
-/* No JS fallback: let's hide the button and show the content */
-.no-js .morph-button > button {
-	display: none;
-}
-
-.no-js .morph-button {
-	margin: 10px 0;
-	float: none;
-}
-
-.no-js .morph-button,
-.no-js .morph-button .morph-content,
-.no-js .morph-button .morph-content > div {
-	position: relative;
-	width: auto;
-	height: auto;
-	opacity: 1;
-	visibility: visible;
-	top: auto;
-	left: auto;
-	-webkit-transform: none;
-	transform: none;
-	pointer-events: auto;
-}
-
-.no-js .morph-button .morph-content .icon-close {
-	display: none;
-}
-
-.no-js .morph-button-sidebar {
-	width: 300px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	margin: 0;
-	height: 100%;
-	background: #e85657;
-	overflow: auto;
-}
-
-.no-transition {
-	-webkit-transition: none !important;
-	transition: none !important;
-}
 
 /* Media Queries */
 
