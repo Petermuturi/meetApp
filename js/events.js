@@ -3,7 +3,7 @@ function validation_for_signup()
 
                 var check_email = /^[\w\.]+@[a-zA-Z_]+?\.[a-zA-Z\.]{2,6}$/;
                 var check_firstname = /^[a-zA-Z0-9_]{3,16}$/;
-                var check_lastname = /^[a-zA-Z]{3,16}$/;
+                var check_lastname = /^[a-zA-Z0-9_]{3,16}$/;
 
                                if(document.signup.firstname.value==="")
                                 {
