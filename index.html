@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 		<link rel="stylesheet" type="text/css" href="css/content.css" />
 		<link rel="stylesheet" type="text/css" href="materialize/css/materialize.min.css"/>
+		  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<script src="js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="js/events.js"></script>
@@ -28,20 +29,20 @@
 			</header>
 			<section>
 				<div class="mockup-content">
-				<form ng-show="scenario == 'Sign up'" name="signup" action="" onSubmit="return validation_for_signup()" method="post">
-				<div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+    <div ng-hide="currentUser">
+    				<div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
 						<button type="button">Signup</button>
 						<div class="morph-content">
 							<div>
 								<div class="content-style-form content-style-form-2">
-									<span class="icon icon-close">Close the dialog</span>
-									<h2>Sign Up</h2>
-									<form>
-										<p><label>First Name</label><input class="no" type="text" /></p>
-										<p><label>Last Name</label><input class="no" type="text" /></p>
-										<p><label>Email</label><input type="email" /></p>
-										<p><label>Password</label><input type="password" /></p>
-										<p><button>Sign Up</button></p>
+									<span class="icon icon-close">X</span>
+									<h2>Create your account</h2>
+									<form ng-show="scenario == 'Sign up'" name="signup" action="" onSubmit="return validation_for_signup()" method="post">
+									First Name: <input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="firstname" type="text" class="validate" name="firstname"  value="" ng-model="user.firstname" size="50">
+								Last Name: <input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="lastname" type="text" class="validate" name="lastname"  value="" ng-model="user.lastname" size="50">
+										Email: <input style="color: #4F002F;" id="email" type="email" class="validate" name="email"  value="" ng-model="user.email" size="50">
+								Password:<input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="password" type="password" class="validate" name="password"  value="" ng-model="user.password">
+								<input class="sbt"  value="Sign up" type="submit" class="sign" ng-click="signUp(user)"/>
 									</form>
 								</div>
 							</div>
@@ -53,19 +54,24 @@
 						<div class="morph-content">
 							<div>
 								<div class="content-style-form content-style-form-1">
-									<span class="icon icon-close">Close the dialog</span>
-									<h2>Login</h2>
-									<form>
-										<p><label>Email</label><input type="email" /></p>
-										<p><label>Password</label><input class="no" type="password" /></p>
-										<p><button>Login</button></p>
+									<span class="icon icon-close">X</span>
+									<h2>Welcome Back</h2>
+									<form ng-show="scenario == 'Sign up'" name="signup" action="" onSubmit="return validation_for_signup()" method="post">
+							Email: <input style="color: #4F002F;" type="email" ng-model="user.email" /><br />
+     Password:<input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="password" type="password" class="validate" name="password"  value="" ng-model="user.password">
+						<input class="sbt" value="login" ng-click="logIn(user)" class="sign" type="submit"/>
 									</form>
 								</div>
 							</div>
 						</div>
 					</div><!-- morph-button -->
-					</form>
-					<div class="skip"><a class="now" href="#">Skip for now <i class="fa fa-chevron-right" style="font-size:14px;"></i></a></div>
+					</div>
+			<div ng-show="currentUser" class="logout">
+    <p>Welcome <span style="color:#4F002F;">{{currentUser.get('username')}}</span></p>
+    <p><a href="#" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons right">send</i></a></p>
+    <input class="sbt" value="Logout" type="submit" class="sign" ng-click="logOut(user)"/>
+  </div>
+					<div ng-hide="currentUser" class="skip"><a class="now" href="#">Skip for now <i class="fa fa-chevron-right" style="font-size:14px;"></i></a></div>
 					</div>
 
 			</section>
@@ -84,9 +90,9 @@
   
   $scope.signUp = function(form) {
      var user = new Parse.User();
-user.set("username", form.username);
+user.set("username", form.firstname);
+user.set("lastname", form.lastname);
 user.set("email", form.email);
-user.set("phone", form.phone);
 user.set("password", form.password);
     
     user.signUp(null, {
@@ -101,7 +107,7 @@ user.set("password", form.password);
   };
   
   $scope.logIn = function(form) {
-    Parse.User.logIn(form.username, form.password, {
+    Parse.User.logIn(form.email, form.password, {
       success: function(user) {
         $scope.currentUser = user;
         $scope.$apply();
@@ -160,12 +166,12 @@ user.signUp(null, {
 						didScroll = true;
 						setTimeout( function() { scrollPage(); }, 60 );
 					}
-				};
+				}
 
 				function scrollPage() {
 					scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
 					didScroll = false;
-				};
+				}
 
 				scrollFn();
 

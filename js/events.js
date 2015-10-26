@@ -4,7 +4,6 @@ function validation_for_signup()
                 var check_email = /^[\w\.]+@[a-zA-Z_]+?\.[a-zA-Z\.]{2,6}$/;
                 var check_firstname = /^[a-zA-Z0-9_]{3,16}$/;
                 var check_lastname = /^[a-zA-Z0-9_]{3,16}$/;
-
                                if(document.signup.firstname.value==="")
                                 {
                                                 alert("please enter first name");
@@ -13,7 +12,7 @@ function validation_for_signup()
                                 }
                                 else if(check_firstname.test(document.signup.firstname.value) === false)
                                 {
-                                                alert('Invalid  firstname');
+                                                alert('Invalid name');
                                                 document.signup.firstname.focus();
                                                 return false;
                                 }
@@ -25,7 +24,7 @@ function validation_for_signup()
                                 }
                                 else if(check_lastname.test(document.signup.lastname.value) === false)
                                 {
-                                                alert('Invalid  lastname');
+                                                alert('Invalid name');
                                                 document.signup.lastname.focus();
                                                 return false;
                                 }
