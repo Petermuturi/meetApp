@@ -7,19 +7,19 @@
 		<title>MeetApp</title>
 		<link rel="icon" type="image/png" href="img/icon.png">
 		<link rel="stylesheet" type="text/css" href="css/events.css"/>
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link rel="stylesheet" type="text/css" href="css/content.css" />
+		<link rel="stylesheet" type="text/css" href="css/normalizea.css" />
+		<link rel="stylesheet" type="text/css" href="css/demoa.css" />
+		<link rel="stylesheet" type="text/css" href="css/componenta.css" />
+		<link rel="stylesheet" type="text/css" href="css/contenta.css" />
 		<link rel="stylesheet" type="text/css" href="materialize/css/materialize.min.css"/>
 		  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<script src="js/modernizr.custom.js"></script>
+		<script src="js/modernizr.customa.js"></script>
 		<script type="text/javascript" src="js/events.js"></script>
-				<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-<script src="//www.parsecdn.com/js/parse-1.6.2.min.js"></script>
-		 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="//www.parsecdn.com/js/parse-1.6.2.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 	</head>
 	<body ng-app="AuthApp" style="background-image: url(img/bg.jpg);
 	background-size: cover;background-position:center;background-repeat:no-repeat;">
@@ -59,9 +59,12 @@
 									<span class="icon icon-close">X</span>
 									<h2>Welcome Back</h2>
 									<form ng-show="scenario == 'Sign up'" name="signup" action="" onSubmit="return validation_for_signup()" method="post">
+									<div class="forgot">
 							Username: <input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" type="text" ng-model="user.username" /><br />
      Password:<input style="color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="password" type="password" class="validate" name="password"  value="" ng-model="user.password">
 						<input class="sbt" value="login" onclick="$('.loading').show()" ng-click="logIn(user)" class="sign" type="submit"/>
+                         </div>
+						<input value="Forgot Password?" onclick="$('.forgot').hide()" ng-click="logIn(user)"class="forgot" type="submit"/>
 						<div class="progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
 									</form>
 								</div>
@@ -81,8 +84,8 @@
 
 			</section>
 			</div>
-		<script src="js/classie.js"></script>
-		<script src="js/uiMorphingButton_fixed.js"></script>
+		<script src="js/classiea.js"></script>
+		<script src="js/uiMorphingButton_fixeda.js"></script>
 		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
    <script type="text/javascript" src="ig/parse.js"></script>
