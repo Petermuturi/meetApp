@@ -20,12 +20,15 @@
         <script src="//www.parsecdn.com/js/parse-1.6.2.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+        <script type="text/javascript" src="js/upload.js"></script>
 	</head>
 	<body ng-app="AuthApp">
 		<div class="container">
 			<div class="menu-wrap">
 				<nav class="menu">
-						<div class="profile"><img src="img/user1.png" alt="{{currentUser.get('username')}}"/><span>{{currentUser.get('username')}}</span></div>
+						<div class="profile">
+						<img class="profile-pic upload-button" src="img/user.png" height="100px" width="100px" style="border-radius:100px;" /><input class="file-upload" type="file" accept="image/*"/>
+						<br/><span style="font-size:20px;">{{currentUser.get('username')}}</span></div>
 					<div class="icon-list">
 						<a href="#"><i class="fa fa-star"></i><span>Add Review</span></a>
 						<a href="#"><i class="fa fa-camera"></i><span>Add Photo</span></a>

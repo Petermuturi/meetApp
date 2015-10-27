@@ -37,3 +37,6 @@ background-color: rgba(0,0,0,0.5);
 	padding-bottom: 30px;
 	margin-bottom: 60px;
 }
+#fileinput{
+	background-image: url(img/user.png);
+}
