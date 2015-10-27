@@ -7,9 +7,6 @@ body,
 	height: 100%;
 }
 
-.container {
-	background: #373a47;
-}
 
 .menu-wrap a {
 	color: #b8b7ad;
@@ -29,7 +26,6 @@ body,
 
 .content {
 	position: relative;
-	background: #b4bad2;
 }
 
 .content::before {
@@ -125,16 +121,16 @@ body,
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
 }
-
+/*#373a47*/
 .menu {
-	background: #373a47;
+	background: white ;
 	width: calc(100% - 120px);
 	height: 100%;
 	padding: 2em 1em;
 }
 
 .icon-list {
-	width: 280px;
+	width: 180px;
 }
 
 .icon-list a {
@@ -149,6 +145,7 @@ body,
 .icon-list a span {
 	margin-left: 10px;
 	text-transform: uppercase;
+	background-color: white;
 	font-weight: 700;
 	letter-spacing: 1px;
 	font-size: 0.75em;
@@ -161,8 +158,8 @@ body,
 	height: 100%;
 	top: 0;
 	right: 0;
-	fill: #373a47;
-	z-index: 1000;
+	fill: white;
+	z-index: 800;
 }
 
 /* Shown menu */

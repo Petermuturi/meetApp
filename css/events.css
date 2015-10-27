@@ -51,3 +51,6 @@ background-color: rgba(0,0,0,0.5);
 .file-upload {
     display: none;
 }
+.out{
+	color:#373a47;opacity:0.6;border:none;background:none; font-size: 0.75em;
+}
