@@ -74,8 +74,7 @@
     <p><a href="#" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons right">send</i></a></p>
     <br/>
     <br/>
-    <input class="sbt" value="Logout" type="submit" class="sign" onclick="$('.loading').show()" ng-click="logOut(user)"/>
-    <div class="progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
+    <input class="sbt" value="Logout" type="submit" class="sign" ng-click="logOut(user)"/>
   </div>
 					<div ng-hide="currentUser" class="skip"><a class="now" href="#">Skip for now <i class="fa fa-chevron-right" style="font-size:14px;"></i></a></div>
 					</div>
@@ -86,64 +85,7 @@
 		<script src="js/uiMorphingButton_fixed.js"></script>
 		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-		<script type="text/javascript">
-   Parse.initialize("jcvmgGCTmx98cxkatcNZ7tmsMyAUPPb0ttsIhXJM", "rFqh6vz2f16xlNindyi0xnzsRa8UPjyzCWF1xe40");
-  
-    angular.module('AuthApp', [])
-.run(['$rootScope', function($scope) {
-  $scope.scenario = 'Sign up';
-  $scope.currentUser = Parse.User.current();
-  
-  $scope.signUp = function(form) {
-     var user = new Parse.User();
-user.set("username", form.firstname);
-user.set("phone", form.phone);
-user.set("email", form.email);
-user.set("password", form.password);
-    
-    user.signUp(null, {
-      success: function(user) {
-        $scope.currentUser = user;
-        $scope.$apply();
-      },
-      error: function(user, error) {
-        alert("Unable to sign up:  " + error.code + " " + error.message);
-      }
-    });    
-  };
-  
-  $scope.logIn = function(form) {
-    Parse.User.logIn(form.username, form.password, {
-      success: function(user) {
-        $scope.currentUser = user;
-        $scope.$apply();
-      },
-      error: function(user, error) {
-        alert("Unable to log in: " + error.code + " " + error.message);
-      }
-    });
-  };
-  
-  $scope.logOut = function(form) {
-    Parse.User.logOut();
-    $scope.currentUser = null;
-
-  };
-}]);
-
-
-// other fields can be set just like with Parse.Object
-  
-user.signUp(null, {
-  success: function(user) {
-    // Hooray! Let them use the app now.
-  },
-  error: function(user, error) {
-    // Show the error message somewhere and let the user try again.
-    alert("Error: " + error.code + " " + error.message);
-  }
-});
-</script>
+   <script type="text/javascript" src="ig/parse.js"></script>
 		<script>
 			(function() {
 				var docElem = window.document.documentElement, didScroll, scrollPosition;
