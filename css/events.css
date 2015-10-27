@@ -37,6 +37,17 @@ background-color: rgba(0,0,0,0.5);
 	padding-bottom: 30px;
 	margin-bottom: 60px;
 }
-#fileinput{
-	background-image: url(img/user.png);
+.upload-button {
+    display: block;
+    float: left;
+}
+
+.profile-pic {
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+}
+
+.file-upload {
+    display: none;
 }

@@ -27,15 +27,22 @@
 			<div class="menu-wrap">
 				<nav class="menu">
 						<div class="profile">
-						<img class="profile-pic upload-button" src="img/user.png" height="100px" width="100px" style="border-radius:100px;" /><input class="file-upload" type="file" accept="image/*"/>
+						<img class="profile-pic upload-button" src="img/user.png" height="100px" width="100px" style="border-radius:100px;" /><input class="file-upload" id="pic" type="file" accept="image/*"/>
 						<br/><span style="font-size:20px;">{{currentUser.get('username')}}</span></div>
-					<div class="icon-list">
+					<div class="icon-list" style="clear:both;">
+					<div ng-hide="currentUser" class="sign" >
+						 <a class="fa fa-sign-in sign lnk" onclick="$('.loading').show()" href="index.html"> Sign Up or Login</a>
+						 <div class="progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
+						 </div>
 						<a href="#"><i class="fa fa-star"></i><span>Add Review</span></a>
 						<a href="#"><i class="fa fa-camera"></i><span>Add Photo</span></a>
 						<a href="#"><i class="fa fa-plus"></i><span>Add a Business</span></a>
 						<a href="#"><i class="fa fa-search"></i></i><span>Search</span></a>
 						<a href="#"><i class="fa fa-paper-plane-o"></i><span>Nearby</span></a>
-					</div>
+						<div ng-show="currentUser" class="logout" >
+						 <a class="fa fa-sign-out"><input value="Logout" type="submit" style="color:white;opacity:0.6;border:none;background:none;" ng-click="logOut(user)"/></a>
+						 </div>
+    				</div>
 				</nav>
 				<button class="close-button" id="close-button">Close Menu</button>
 				<div class="morph-shape" id="morph-shape" data-morph-open="M-1,0h101c0,0,0-1,0,395c0,404,0,405,0,405H-1V0z">
