@@ -14,9 +14,9 @@ body,
 
 .menu-wrap a:hover,
 .menu-wrap a:focus {
-	color: #c94e50;
+	color: #EC6A6A;
 }
-
+/*#c94e50*/
 .content-wrap {
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
