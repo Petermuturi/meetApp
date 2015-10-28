@@ -123,7 +123,7 @@ body,
 }
 /*#373a47*/
 .menu {
-	background: white ;
+	background:#373a47;
 	width: calc(100% - 120px);
 	height: 100%;
 	padding: 2em 1em;
@@ -145,7 +145,7 @@ body,
 .icon-list a span {
 	margin-left: 10px;
 	text-transform: uppercase;
-	background-color: white;
+	background-color: #373a47;
 	font-weight: 700;
 	letter-spacing: 1px;
 	font-size: 0.75em;
@@ -158,8 +158,8 @@ body,
 	height: 100%;
 	top: 0;
 	right: 0;
-	fill: white;
-	z-index: 800;
+	fill: #373a47;
+	z-index: 1000;
 }
 
 /* Shown menu */
