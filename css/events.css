@@ -41,7 +41,9 @@ background-color: rgba(0,0,0,0.5);
     display: block;
     float: left;
 }
-
+.top{
+	background-color:black;
+}
 .profile-pic {
     max-width: 100px;
     max-height: 100px;
@@ -68,26 +70,26 @@ background-color: rgba(0,0,0,0.5);
 }
 
 /*tabs*/
+
 ul#tabs {
     list-style-type: none;
     padding: 0;
     text-align: center;
 }
 ul#tabs li {
-    display: inline-block;
-    background-color: #32c896;
-    border-bottom: solid 5px #238b68;
-    padding: 5px 20px;
-    margin-bottom: 4px;
-    color: #fff;
+	text-transform: uppercase;
+    display: inline;
+    border-bottom: solid 2px #B9B9B9;
+    padding: 5px;
+    text-align: center;
+    color: #B9B9B9;
     cursor: pointer;
 }
-ul#tabs li:hover {
-    background-color: #238b68;
+ul#tabs li:hover, ul#tabs li.active {
+   border-bottom: solid 2px #E65B5B;
+   color: #4A4A4A;
 }
-ul#tabs li.active {
-    background-color: #238b68;
-}
+
 ul#tab {
     list-style-type: none;
     margin: 0;
@@ -98,4 +100,8 @@ ul#tab li {
 }
 ul#tab li.active {
     display: block;
+}
+.bod{
+	padding-top: 10px;
+	margin-top: -20px;
 }
