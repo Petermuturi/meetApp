@@ -78,12 +78,18 @@ ul#tabs {
 }
 ul#tabs li {
 	text-transform: uppercase;
-    display: inline;
+    display: inline-block;
     border-bottom: solid 2px #B9B9B9;
-    padding: 5px;
+    margin-left: -2px;
+    margin-right: -2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
     text-align: center;
     color: #B9B9B9;
     cursor: pointer;
+    width:100px;
 }
 ul#tabs li:hover, ul#tabs li.active {
    border-bottom: solid 2px #E65B5B;
@@ -100,8 +106,14 @@ ul#tab li {
 }
 ul#tab li.active {
     display: block;
+    color: black;
 }
 .bod{
 	padding-top: 10px;
 	margin-top: -20px;
+}
+.ro{
+	    white-space: nowrap;
+	        overflow-x:auto;
+
 }
