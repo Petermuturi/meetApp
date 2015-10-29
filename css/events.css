@@ -21,7 +21,7 @@
 }
 .sbt{
 	border: 1px solid white;
-	color:#EC6A6A;
+	color:aqua;
 	border-radius: 5px;
 	padding-top: 7px;
 	padding-bottom: 7px;
@@ -30,7 +30,7 @@
 background-color: rgba(0,0,0,0.5); 
 }
 .sbt:hover, .sbt:visited{
-	background-color: #EC6A6A;
+	background-color: aqua;
     color: rgba(0,0,0,0.5);
 }
 .logout{
