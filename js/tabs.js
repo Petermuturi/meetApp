@@ -10,3 +10,14 @@ $(document).ready(function(){
         }
     });
 });
+
+$('.event').show();
+$('#search').click(function(){
+    $('.event').hide();
+    var txt = $('#search').val();
+    $('.event').each(function(){
+       if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+           $(this).show();
+       }
+    });
+});
