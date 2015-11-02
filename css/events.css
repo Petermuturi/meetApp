@@ -76,6 +76,11 @@ ul#tabs {
     padding: 0;
     text-align: center;
 }
+#map{
+	height: 100%
+}
+
+
 ul#tabs li {
 	text-transform: uppercase;
     display: inline-block;

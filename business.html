@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Business</title>
+		<link rel="icon" type="image/png" href="img/icon.png">
+		<link rel="stylesheet" type="text/css" href="css/events.css"/>
+		<link rel="stylesheet" type="text/css" href="css/normalizea.css" />
+		<link rel="stylesheet" type="text/css" href="css/demoa.css" />
+		<link rel="stylesheet" type="text/css" href="css/componenta.css" />
+		<link rel="stylesheet" type="text/css" href="css/contenta.css" />
+		<link rel="stylesheet" type="text/css" href="materialize/css/materialize.min.css"/>
+		  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<script src="js/modernizr.customa.js"></script>
+		<script type="text/javascript" src="js/eventsa.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+           <script type="text/javascript" src="js/upload.js"></script>
+	</head>
+	<body ng-app="BizApp" style="background-image: url(img/bg.jpg);
+	background-size:cover;background-position:center;background-repeat:no-repeat;">
+	<div class="layer">
+			<header class="codrops-header">
+				<h1 class="name">Create your business</h1>
+			</header>
+			<section>
+				<div class="mockup-content">
+    				<div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+						<button type="button">CREATE BUSINESS</button>
+						<div class="morph-content">
+							<div>
+								<div class="content-style-form content-style-form-2">
+									<span class="icon icon-close">X</span>
+									<h2>Create your business</h2>
+							<form id="business" name="business" action="" method="post">
+									<div>
+		Name of business: <input style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="business_name" type="text" class="validate" name="name"  value="" ng-model="business.name" size="50">
+	</div>
+	<div>
+Location: <input style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2); border-top:none; border-right:none; border-left:none;" id="geocomplete" type="text" class="validate" name="location"  value="" ng-model="business.location" size="50">
+</div>
+	<div class="row">
+	<div class="col s12">
+	<p>Add a photo concerning your business.</p>
+	<img class="photo1 upload-button" src="img/biz.jpg" height="140px" width="180px" /><input class="file-upload" id="photo1" name="photo1"  value="" ng-model="business.photo1" type="file" accept="image/*"/>
+	</div>
+	</div> 
+								<input class="sbt"  value="Create" type="submit" class="sign" onclick="$('.loading').show()" ng-click="Biz(business)"/>
+							<div class="progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div><!-- morph-button -->
+			</section>
+			</div>
+			 <script type="text/javascript" src="ig/biz.js"></script>
+		<script src="js/classiea.js"></script>
+		<script src="js/uiMorphingButton_fixed.js"></script>
+		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+   <script type="text/javascript" src="js/scroll.js"></script>
+	</body>
+</html>

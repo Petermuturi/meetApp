@@ -8,8 +8,11 @@ $(document).ready(function() {
             reader.onload = function (e) {
                 $('.profile-pic').attr('src', e.target.result);
             };
-    
-            reader.readAsDataURL(input.files[0]);
+          reader.onload = function (e) {
+                $('.photo1').attr('src', e.target.result);
+            };
+          
+                      reader.readAsDataURL(input.files[0]);
         }
     };
     
