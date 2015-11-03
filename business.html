@@ -17,30 +17,70 @@
 		<script src="js/modernizr.customa.js"></script>
 		<script type="text/javascript" src="js/eventsa.js"></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="http://www.parsecdn.com/js/parse-latest.js"></script>
+          <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+          <script type="text/javascript">
+function initialize() {
+    var input = document.getElementById('geocomplete');
+    var options = {componentRestrictions: {country: 'ke'}};
+                 
+    new google.maps.places.Autocomplete(input, options);
+}
+             
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 	</head>
 	<body ng-app="AuthApp" style="background-image: url(img/bg.jpg);
 	background-size:cover;background-position:center;background-repeat:no-repeat;">
 	<div class="layer">
 			<header class="codrops-header">
-				<h1 class="name">Create your business</h1>
+				<h1 class="name">Add your business</h1>
 			</header>
 			<section>
 				<div class="mockup-content">
     				<div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
-						<button type="button">CREATE RESTAURANT</button>
+						<button type="button">RESTAURANT</button>
 						<div class="morph-content">
 							<div>
 								<div class="content-style-form content-style-form-2">
-									<span class="icon icon-close">X</span>
+									<span class="icon icon-close">.</span>
 									<h2>Create your restaurant {{currentUser.get('username')}}</h2>
-							<form id="business" name="business" action="" method="post">
+							<form id="restaurant" name="restaurant" action="" method="post">
 									<div>
 		Name of restaurant: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
-Location: <input id="geocomplete"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
+Location: <input id="restloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
+</div>
+	<div class="row">
+	<div class="col s12">
+	<h6>Add a photo</h6>
+	<img class="photo1 upload-button" src="img/biz.jpg" height="140px" width="180px" />
+	<input id="photo1" name="photo1"  value="" type="file" accept="image/*"/>
+	</div>
+	</div> 
+			<input class="sbt"  value="Create" type="submit" class="sign" onclick="$('.loading').show()" />
+		<div class="progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div><!-- Restaurant -->
+
+					 <div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+						<button type="button">BAR</button>
+						<div class="morph-content">
+							<div>
+								<div class="content-style-form content-style-form-2">
+									<span class="icon icon-close">.</span>
+									<h2>Create your bar {{currentUser.get('username')}}</h2>
+							<form id="bar" name="bar" action="" method="post">
+									<div>
+		Name of bar: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
+	</div>
+	<div>
+Location: <input id="barloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
 </div>
 	<div class="row">
 	<div class="col s12">
@@ -54,18 +94,46 @@ Location: <input id="geocomplete"style="margin-top:-4px;color: #4F002F;width:300
 								</div>
 							</div>
 						</div>
-					</div><!-- Restaurant -->
-
-					 <div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
-						<button type="button">CREATE BAR</button>
+					</div>
+					<!-- Bar -->
+					  <div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+						<button type="button">NIGHTLIFE</button>
 						<div class="morph-content">
 							<div>
 								<div class="content-style-form content-style-form-2">
 									<span class="icon icon-close">X</span>
-									<h2>Create your bar {{currentUser.get('username')}}</h2>
+									<h2>Add your Nightlife {{currentUser.get('username')}}</h2>
+							<form id="nightlife" name="nightlife" action="" method="post">
+									<div>
+		Name of Nightlife: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
+	</div>
+	<div>
+Location: <input id="nightloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
+</div>
+	<div class="row">
+	<div class="col s12">
+	<h6>Add a photo</h6>
+	<img class="photo1 upload-button" src="img/biz.jpg" height="140px" width="180px" /><input id="photo1" name="photo1"  value="" type="file" accept="image/*"/>
+	</div>
+	</div> 
+			<input class="sbt"  value="Create" type="submit" class="sign" onclick="$('.loading').show()" />
+		<div class="progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- nightlife -->
+					 <div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+						<button type="button">SHOPPING</button>
+						<div class="morph-content">
+							<div>
+								<div class="content-style-form content-style-form-2">
+									<span class="icon icon-close">X</span>
+									<h2>Create your shopping spot {{currentUser.get('username')}}</h2>
 							<form id="business" name="business" action="" method="post">
 									<div>
-		Name of bar: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
+		Name of shopping place: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
 Location: <input id="geocomplete"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
@@ -83,10 +151,72 @@ Location: <input id="geocomplete"style="margin-top:-4px;color: #4F002F;width:300
 							</div>
 						</div>
 					</div>
-					<!-- Bar -->
+					<!-- shopping -->
+					<div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+						<button type="button">ACTIVITY</button>
+						<div class="morph-content">
+							<div>
+								<div class="content-style-form content-style-form-2">
+									<span class="icon icon-close">X</span>
+									<h2>Create your activity {{currentUser.get('username')}}</h2>
+							<form id="business" name="business" action="" method="post">
+									<div>
+		Name of activity: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
+	</div>
+	<div>
+Location: <input id="geocomplete"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
+</div>
+	<div class="row">
+	<div class="col s12">
+	<h6>Add a photo</h6>
+	<img class="photo1 upload-button" src="img/biz.jpg" height="140px" width="180px" /><input id="photo1" name="photo1"  value="" type="file" accept="image/*"/>
+	</div>
+	</div> 
+			<input class="sbt"  value="Create" type="submit" class="sign" onclick="$('.loading').show()" />
+		<div class="progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- activity -->
+					 <div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+						<button type="button">EVENT</button>
+						<div class="morph-content">
+							<div>
+								<div class="content-style-form content-style-form-2">
+									<span class="icon icon-close">X</span>
+									<h2>Create your event {{currentUser.get('username')}}</h2>
+							<form id="business" name="business" action="" method="post">
+									<div>
+		Name of event: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
+	</div>
+	<div>
+Location: <input id="geocomplete"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
+</div>
+	<div class="row">
+	<div class="col s12">
+	<h6>Add a photo</h6>
+	<img class="photo1 upload-button" src="img/biz.jpg" height="140px" width="180px" /><input id="photo1" name="photo1"  value="" type="file" accept="image/*"/>
+	</div>
+	</div> 
+			<input class="sbt"  value="Create" type="submit" class="sign" onclick="$('.loading').show()" />
+		<div class="progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- event -->
+					</div>
 			</section>
 			</div>
-			 <script type="text/javascript" src="ig/biz.js"></script>
+			 <script type="text/javascript" src="ig/restaurant.js"></script>
+			  <script type="text/javascript" src="ig/bar.js"></script>
+			   <script type="text/javascript" src="ig/nightlife.js"></script>
+			    <script type="text/javascript" src="ig/.js"></script>
+			     <script type="text/javascript" src="ig/.js"></script>
+			      <script type="text/javascript" src="ig/.js"></script>
 			 <script type="text/javascript" src="ig/parse.js"></script>
 		<script src="js/classiea.js"></script>
 		<script src="js/uiMorphingButton_fixed.js"></script>
