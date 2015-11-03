@@ -22,7 +22,7 @@
           <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
           <script type="text/javascript">
 function initialize() {
-    var input = document.getElementById('geocomplete');
+    var input = document.querySelectorAll("#restloc, #barloc, #nightloc, #activityloc, #shoploc, #eventloc");
     var options = {componentRestrictions: {country: 'ke'}};
                  
     new google.maps.places.Autocomplete(input, options);
@@ -48,7 +48,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 									<h2>Create your restaurant {{currentUser.get('username')}}</h2>
 							<form id="restaurant" name="restaurant" action="" method="post">
 									<div>
-		Name of restaurant: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
+		Name of restaurant: <input id="namerest" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
 Location: <input id="restloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
@@ -77,7 +77,7 @@ Location: <input id="restloc"style="margin-top:-4px;color: #4F002F;width:300px;b
 									<h2>Create your bar {{currentUser.get('username')}}</h2>
 							<form id="bar" name="bar" action="" method="post">
 									<div>
-		Name of bar: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
+		Name of bar: <input id="namebar" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
 Location: <input id="barloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
@@ -105,7 +105,7 @@ Location: <input id="barloc"style="margin-top:-4px;color: #4F002F;width:300px;bo
 									<h2>Add your Nightlife {{currentUser.get('username')}}</h2>
 							<form id="nightlife" name="nightlife" action="" method="post">
 									<div>
-		Name of Nightlife: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
+		Name of Nightlife: <input id="namenight" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
 Location: <input id="nightloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
@@ -133,7 +133,7 @@ Location: <input id="nightloc"style="margin-top:-4px;color: #4F002F;width:300px;
 									<h2>Create your shopping spot {{currentUser.get('username')}}</h2>
 							<form id="shop" name="shop" action="" method="post">
 									<div>
-		Name of shopping place: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
+		Name of shopping place: <input id="nameshop" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
 Location: <input id="shoploc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
@@ -161,7 +161,7 @@ Location: <input id="shoploc"style="margin-top:-4px;color: #4F002F;width:300px;b
 									<h2>Create your activity {{currentUser.get('username')}}</h2>
 							<form id="activity" name="activity" action="" method="post">
 									<div>
-		Name of activity: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
+		Name of activity: <input id="nameactiv" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
 Location: <input id="activityloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
@@ -189,7 +189,7 @@ Location: <input id="activityloc"style="margin-top:-4px;color: #4F002F;width:300
 									<h2>Create your event {{currentUser.get('username')}}</h2>
 							<form id="event" name="event" action="" method="post">
 									<div>
-		Name of event: <input id="name" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
+		Name of event: <input id="nameevent" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
 Location: <input id="eventloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
