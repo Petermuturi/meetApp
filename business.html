@@ -19,20 +19,19 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script src="http://www.parsecdn.com/js/parse-latest.js"></script>
-          <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-          <script type="text/javascript">
-function initialize() {
-    var input = document.querySelectorAll("#restloc, #barloc, #nightloc, #activityloc, #shoploc, #eventloc");
-    var options = {componentRestrictions: {country: 'ke'}};
-                 
-    new google.maps.places.Autocomplete(input, options);
-}
-             
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+<!-- Google Place library -->
+<script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+
+<!-- Geocomplete plugin -->
+<script src="//cdn.jsdelivr.net/jquery.geocomplete/1.6.4/jquery.geocomplete.min.js"></script>
+          <script src="js/upload.js"></script>
 	</head>
 	<body ng-app="AuthApp" style="background-image: url(img/bg.jpg);
 	background-size:cover;background-position:center;background-repeat:no-repeat;">
+	    <div id="addressDetails" class="hide">
+        <input name="lat" type="hidden" class="form-control" />
+        <input name="lng" type="hidden" class="form-control" />
+    </div>
 	<div class="layer">
 			<header class="codrops-header">
 				<h1 class="name">Add your business</h1>
@@ -55,13 +54,13 @@ Location: <input id="restloc"style="margin-top:-4px;color: #4F002F;width:300px;b
 </div>
 	<div class="row">
 	<div class="col s12">
-	<h6>Add a photo</h6>
-	<img class="photo1 upload-button" src="img/biz.jpg" height="140px" width="180px" />
-	<input id="photo1" name="photo1"  value="" type="file" accept="image/*"/>
+	<h6>Add a photo</h6>	
+	<img class="photox upload-button" src="img/biz.jpg" height="140px" width="180px" />
+	<input id="photo-one" name="photo-one" type="file" class="file-upload" accept="image/*"/>
 	</div>
 	</div> 
 			<input class="sbt"  value="Create" type="submit" class="sign" onclick="$('.loading').show()" />
-		<div class="progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
+		<div class="load progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
 									</form>
 								</div>
 							</div>
@@ -82,12 +81,13 @@ Location: <input id="restloc"style="margin-top:-4px;color: #4F002F;width:300px;b
 	<div>
 Location: <input id="barloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
 </div>
-	<div class="row">
+		<div class="row">
 	<div class="col s12">
-	<h6>Add a photo</h6>
-	<img class="photo1 upload-button" src="img/biz.jpg" height="140px" width="180px" /><input id="photo1" name="photo1"  value="" type="file" accept="image/*"/>
+	<h6>Add a photo</h6>	
+	<img class="photobar upload-buttonbar" src="img/biz.jpg" height="140px" width="180px" />
+	<input id="photo-two" name="photo-two" type="file" class="file-uploadbar" accept="image/*"/>
 	</div>
-	</div> 
+	</div>
 			<input class="sbt"  value="Create" type="submit" class="sign" onclick="$('.loading').show()" />
 		<div class="progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
 									</form>
@@ -112,10 +112,11 @@ Location: <input id="nightloc"style="margin-top:-4px;color: #4F002F;width:300px;
 </div>
 	<div class="row">
 	<div class="col s12">
-	<h6>Add a photo</h6>
-	<img class="photo1 upload-button" src="img/biz.jpg" height="140px" width="180px" /><input id="photo1" name="photo1"  value="" type="file" accept="image/*"/>
+	<h6>Add a photo</h6>	
+	<img class="photolife upload-buttonlife" src="img/biz.jpg" height="140px" width="180px" />
+	<input id="photo-three" name="photo-three" type="file" class="file-uploadlife" accept="image/*"/>
 	</div>
-	</div> 
+	</div>
 			<input class="sbt"  value="Create" type="submit" class="sign" onclick="$('.loading').show()" />
 		<div class="progress loading" style="display:none;"><div style="display:none;" class="indeterminate loading"></div></div>
 									</form>
@@ -138,10 +139,11 @@ Location: <input id="nightloc"style="margin-top:-4px;color: #4F002F;width:300px;
 	<div>
 Location: <input id="shoploc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
 </div>
-	<div class="row">
+		<div class="row">
 	<div class="col s12">
-	<h6>Add a photo</h6>
-	<img class="photo1 upload-button" src="img/biz.jpg" height="140px" width="180px" /><input id="photo1" name="photo1"  value="" type="file" accept="image/*"/>
+	<h6>Add a photo</h6>	
+	<img class="photoshop upload-buttonshop" src="img/biz.jpg" height="140px" width="180px" />
+	<input id="photo-four" name="photo-four" type="file" class="file-uploadshop" accept="image/*"/>
 	</div>
 	</div> 
 			<input class="sbt"  value="Create" type="submit" class="sign" onclick="$('.loading').show()" />
@@ -168,8 +170,9 @@ Location: <input id="activityloc"style="margin-top:-4px;color: #4F002F;width:300
 </div>
 	<div class="row">
 	<div class="col s12">
-	<h6>Add a photo</h6>
-	<img class="photo1 upload-button" src="img/biz.jpg" height="140px" width="180px" /><input id="photo1" name="photo1"  value="" type="file" accept="image/*"/>
+	<h6>Add a photo</h6>	
+	<img class="photoactivity upload-buttonactivity" src="img/biz.jpg" height="140px" width="180px" />
+	<input id="photo-five" name="photo-five" type="file" class="file-uploadactivity" accept="image/*"/>
 	</div>
 	</div> 
 			<input class="sbt"  value="Create" type="submit" class="sign" onclick="$('.loading').show()" />
@@ -196,8 +199,9 @@ Location: <input id="eventloc"style="margin-top:-4px;color: #4F002F;width:300px;
 </div>
 	<div class="row">
 	<div class="col s12">
-	<h6>Add a photo</h6>
-	<img class="photo1 upload-button" src="img/biz.jpg" height="140px" width="180px" /><input id="photo1" name="photo1"  value="" type="file" accept="image/*"/>
+	<h6>Add a photo</h6>	
+	<img class="photoevent upload-buttonevent" src="img/biz.jpg" height="140px" width="180px" />
+	<input id="photo-six" name="photo-six" type="file" class="file-uploadevent" accept="image/*"/>
 	</div>
 	</div> 
 			<input class="sbt"  value="Create" type="submit" class="sign" onclick="$('.loading').show()" />
@@ -209,6 +213,7 @@ Location: <input id="eventloc"style="margin-top:-4px;color: #4F002F;width:300px;
 					</div>
 					<!-- event -->
 					</div>
+					<p style="text-align:center;"><a href="events.html" style="color:white;font-size:20px;"><i class="fa fa-arrow-left"></i> Cancel</a></p>
 			</section>
 			</div>
 			 <script type="text/javascript" src="ig/restaurant.js"></script>
