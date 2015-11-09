@@ -1,29 +1,44 @@
-$(document).ready(function() {
-
-    
+$(document).ready(function() {    
     var readURL = function(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('.profile-pic').attr('src', e.target.result);
+                $('.profile').attr('src', e.target.result);
             };
-          reader.onload = function (e) {
-                $('.photox').attr('src', e.target.result);
-            };
+         
                       reader.readAsDataURL(input.files[0]);
         }
     };
-    
+        $(".file-uploaddp").on('change', function(){
+        readURL(this);
+    });
+        $(".upload-buttondp").on('click', function() {
+       $(".file-uploaddp").click();
+    });
+});
+// restaurant pic
+$(document).ready(function() {    
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-    $(".file-upload").on('change', function(){
+   reader.onload = function (e) {
+                $('.photox').attr('src', e.target.result);
+            };
+          
+                      reader.readAsDataURL(input.files[0]);
+        }
+    };
+    $(".file-uploadx").on('change', function(){
         readURL(this);
     });
     
-    $(".upload-button").on('click', function() {
-       $(".file-upload").click();
+    $(".upload-buttonx").on('click', function() {
+       $(".file-uploadx").click();
     });
 });
+
 // bar pic
 $(document).ready(function() {    
     var readURL = function(input) {

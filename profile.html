@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile_Pic</title>
+	<link rel="icon" type="image/png" href="img/icon.png">
+		<link rel="stylesheet" type="text/css" href="css/events.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+				<link rel="stylesheet" type="text/css" href="materialize/css/materialize.min.css"/>
+		  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="http://www.parsecdn.com/js/parse-latest.js"></script>
+		<script src="js/upload.js"></script>
+</head>
+<body ng-app="AuthApp" style="background-color:black;">
+<div style="color:#E17474; text-align:center;padding-top:120px;">
+ <img class="profile upload-buttondp" onclick="$('.hd').show();" height="500" width="500" style="border-radius:100px;" src="img/add.jpg"/>
+	<p style="opacity:0;"><input id="dp" name="dp" type="file" class="file-uploaddp" accept="image/*"/></p>
+	<h1 style="color:white;font-size:150px;">Add your Photo {{currentUser.get('username')}}</h1>
+
+<input style="font-size:100px;" class="sbt sign hd" value="SAVE" onclick="$('.loading').show()" type="submit"/>
+<div class="progress loading" style="display:none; height:10px; margin-top:50px;"><div style="display:none;" class="indeterminate loading"></div></div>
+</div>
+   <script type="text/javascript" src="ig/parse.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
