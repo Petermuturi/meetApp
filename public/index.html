@@ -28,8 +28,8 @@
 			</header>
 			<section>
 				<div class="mockup-content">
-  
-    				<div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+    <div ng-hide="currentUser">
+    				<div  class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
 						<button type="button">SIGN UP</button>
 						<div class="morph-content">
 							<div>
@@ -49,7 +49,7 @@
 							</div>
 						</div>
 					</div><!-- morph-button -->
-					  <div ng-hide="currentUser">
+					
 					<div><strong class="joiner">or</strong></div>
 					<div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed">
 						<button type="button">LOGIN</button>
@@ -72,7 +72,7 @@
 			<div ng-show="currentUser" class="logout">
     <p>Welcome <span style="color:aqua;">{{currentUser.get('username')}}</span></p>
     <p>You have Successfully Logged in</p>
-    <p><a href="events.html" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons right">send</i></a></p>
+    <p><a href="profile.html" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons right">send</i></a></p>
     <p>Continue</p>
   </div>
 					<div ng-hide="currentUser" class="skip"><a class="now" href="events.html">Skip for now <i class="fa fa-chevron-right" style="font-size:14px;"></i></a></div>

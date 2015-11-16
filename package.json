@@ -1,0 +1,26 @@
+{
+  "name": "events",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Petermuturi/meetApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Petermuturi/meetApp/issues"
+  },
+  "homepage": "https://github.com/Petermuturi/meetApp",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
