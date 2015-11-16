@@ -126,6 +126,7 @@ body,
 	background:#373a47;
 	width: calc(100% - 120px);
 	height: 100%;
+	overflow-x: scroll;
 	padding: 2em 1em;
 }
 
