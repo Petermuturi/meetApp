@@ -1,61 +1,52 @@
  Parse.initialize("jcvmgGCTmx98cxkatcNZ7tmsMyAUPPb0ttsIhXJM", "rFqh6vz2f16xlNindyi0xnzsRa8UPjyzCWF1xe40");
 
-var profilepic = Parse.Object.extend("profilepic");
+var profilePic = Parse.Object.extend("profilePic");
 
-function getDp(){
- 	var query = new Parse.Query(profilepic);
- 	query.find({
- 		success:function(results){
- 			var output = "";
-                   
-             var img = "";
-             if(results.get("profpic")){
-             var file = results.get("profpic");
-             var url = file.url();
-              img = "<img style='height:400px;width:420px;border-radius:10px;'src='"+url+"'>";
-                       
-              output+="<div >"+img+"</div>";
-            
-          }
-          $("#userpic").html(output);
- 	},
- 	error:function(error){
+ function getPosts(){
+  var query = new Parse.Query(profilePic);
+  query.find({
+    success:function(results){
       var output = "";
-                   
-             var img = "";
-             if(results.get("profpic")){
-              img = "<img style='height:400px;width:420px;border-radius:10px;'src='../img/user.png'>";
-                       
-              output+="<div >"+img+"</div>";
+          for(var i in results){
+             var img = "<img src='img/user.png'>";
+             if(results[i].get("photo1")){
+             var file = results[i].get("photo1");
+             var url = file.url();
+              img = "<img style='height:150px;width:290px;'src='"+url+"'>";
+            }
+             // console.log("name: "+name);
+             
+              output+="<div style='margin-bottom:-50px;'>"+img+"</div>";
             
           }
           $("#userpic").html(output);
- 	}
+  },
+  error:function(error){
+      alert("Unable to get restaurants from the server");
+  }
  });
  }
 
-   getDp();
-
-
-
+   getPosts();
 
 
 $("#ppic").submit(function(event){
-	event.preventDefault();
-	var User = Parse.User.current();
+  event.preventDefault();
+  var user = Parse.User.current();
+  
+  var newRestaurant = new profilePic();
+  newRestaurant.set("user", user);
 
-	var newDp = new profilepic();
-	newDp.set("user", user);
 
+ 
+  var photorest1 = $("#dp")[0];
+  var photorest1path = $("#dp").val();
+  var photorest1name = photorest1path.split("\\").pop();
 
-var prof = $("#dp")[0];
-  var profpath = $("#dp").val();
-  var profname = profpath.split("\\").pop();
-
-  if(prof.files.length > 0) {
-    var pic1 = prof.files[0];
-    var prof1 = new Parse.File(profname, pic1);
-     prof1.save({
+  if(photorest1.files.length > 0) {
+    var pic1 = photorest1.files[0];
+    var rest1 = new Parse.File(photorest1name, pic1);
+     rest1.save({
       success:function(){
 
      },
@@ -63,14 +54,13 @@ var prof = $("#dp")[0];
         alert("photo not uploaded\n" + error.message);
      }
      }).then(function(theFirstPhoto){
-      newDp.set("profpic", theFirstPhoto);
-      newDp.save({
+      newRestaurant.set("photo1", theFirstPhoto);
+      newRestaurant.save({
 
         success:function(){
-         alert("your business has been successfully created");
          window.open("events.html");
          getPosts();
-         $(".loading").hide();
+         $(".load").hide();
       },
 
         error:function(error){
@@ -81,5 +71,19 @@ var prof = $("#dp")[0];
      });
 
 
+  } else{
+             newRestaurant.save({
+      success:function(){
+         window.open("events.html");
+         getPosts();
+         $(".load").hide();
+     },
+      error:function(){
+          alert("Something went wrong");
+      }
+  }); 
   }
+
+     
+
 });
