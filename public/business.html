@@ -16,22 +16,15 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<script src="js/modernizr.customa.js"></script>
 		<script type="text/javascript" src="js/eventsa.js"></script>
-	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>         
         <script src="http://www.parsecdn.com/js/parse-latest.js"></script>
-<!-- Google Place library -->
-<script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-
-<!-- Geocomplete plugin -->
-<script src="//cdn.jsdelivr.net/jquery.geocomplete/1.6.4/jquery.geocomplete.min.js"></script>
+         <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
           <script src="js/upload.js"></script>
 	</head>
 	<body ng-app="AuthApp" style="background-image: url(img/bg.jpg);
 	background-size:cover;background-position:center;background-repeat:no-repeat;">
-	    <div id="addressDetails" class="hide">
-        <input name="lat" type="hidden" class="form-control" />
-        <input name="lng" type="hidden" class="form-control" />
-    </div>
+	    <div style="display:none" class="map_canvas"></div>
 	<div class="layer">
 			<header class="codrops-header">
 				<h1 class="name">Add your business</h1>
@@ -50,7 +43,7 @@
 		Name of restaurant: <input id="namerest" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
-Location: <input id="restloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
+Location: <input id="restloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate geocomplete" placeholder="" name="location"  value="" size="50">
 </div>
 	<div class="row">
 	<div class="col s12">
@@ -79,7 +72,7 @@ Location: <input id="restloc"style="margin-top:-4px;color: #4F002F;width:300px;b
 		Name of bar: <input id="namebar" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
-Location: <input id="barloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
+Location: <input id="barloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate geocomplete" placeholder="" name="location"  value="" size="50">
 </div>
 		<div class="row">
 	<div class="col s12">
@@ -108,7 +101,7 @@ Location: <input id="barloc"style="margin-top:-4px;color: #4F002F;width:300px;bo
 		Name of Nightlife: <input id="namenight" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
-Location: <input id="nightloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
+Location: <input id="nightloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate geocomplete" placeholder="" name="location"  value="" size="50">
 </div>
 	<div class="row">
 	<div class="col s12">
@@ -137,7 +130,7 @@ Location: <input id="nightloc"style="margin-top:-4px;color: #4F002F;width:300px;
 		Name of shop: <input id="nameshop" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
-Location: <input id="shoploc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
+Location: <input id="shoploc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate geocomplete" placeholder="" name="location"  value="" size="50">
 </div>
 		<div class="row">
 	<div class="col s12">
@@ -166,7 +159,7 @@ Location: <input id="shoploc"style="margin-top:-4px;color: #4F002F;width:300px;b
 		Name of activity: <input id="nameactiv" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
-Location: <input id="activityloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
+Location: <input id="activityloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate geocomplete" placeholder="" name="location"  value="" size="50">
 </div>
 	<div class="row">
 	<div class="col s12">
@@ -195,7 +188,7 @@ Location: <input id="activityloc"style="margin-top:-4px;color: #4F002F;width:300
 		Name of event: <input id="nameevent" style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="name"  value="" size="50">
 	</div>
 	<div>
-Location: <input id="eventloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate" name="location"  value="" size="50">
+Location: <input id="eventloc"style="margin-top:-4px;color: #4F002F;width:300px;border-color:rgba(0,0,0,0.2);border-top:none;border-right:none;border-left:none;" type="text" class="validate geocomplete" placeholder="" name="location"  value="" size="50">
 </div>
 	<div class="row">
 	<div class="col s12">
@@ -216,6 +209,19 @@ Location: <input id="eventloc"style="margin-top:-4px;color: #4F002F;width:300px;
 					<p style="text-align:center;"><a href="events.html" style="color:white;font-size:20px;"><i class="fa fa-arrow-left"></i> Cancel</a></p>
 			</section>
 			</div>
+			  <script src="maps/jquery.geocomplete.js"></script>
+			  <script>
+      $(function(){
+        
+        var options = {
+          map: ".map_canvas",
+          location: "."
+        };
+        
+        $(".geocomplete").geocomplete(options);
+        
+      });
+    </script>
 			 <script type="text/javascript" src="ig/restaurant.js"></script>
 			  <script type="text/javascript" src="ig/bar.js"></script>
 			   <script type="text/javascript" src="ig/nightlife.js"></script>			   

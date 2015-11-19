@@ -3,7 +3,7 @@
 var profilePic = Parse.Object.extend("profilePic");
 
  function getPosts(){
-  var query = new Parse.Query(profilePic);
+  var query = new Parse.Query(profilePic); 
   query.find({
     success:function(results){
       var output = "";
@@ -12,17 +12,17 @@ var profilePic = Parse.Object.extend("profilePic");
              if(results[i].get("photo1")){
              var file = results[i].get("photo1");
              var url = file.url();
-              img = "<img style='height:150px;width:290px;'src='"+url+"'>";
+              img = "<img style='height:150px;width:190px;'src='"+url+"'>";
             }
              // console.log("name: "+name);
              
-              output+="<div style='margin-bottom:-50px;'>"+img+"</div>";
+              output+="<div >"+img+"</div>";
             
           }
           $("#userpic").html(output);
   },
   error:function(error){
-      alert("Unable to get restaurants from the server");
+     
   }
  });
  }
