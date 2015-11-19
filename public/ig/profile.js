@@ -16,7 +16,7 @@ var profilePic = Parse.Object.extend("profilePic");
             }
              // console.log("name: "+name);
              
-              output+="<div >"+img+"</div>";
+              output+="<div>"+img+"</div>";
             
           }
           $("#userpic").html(output);
