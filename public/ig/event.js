@@ -18,7 +18,7 @@ var Events = Parse.Object.extend("Events");
             }
              // console.log("name: "+name);
               output+="<div class='row'>";
-             output+="<div class='card col s9' style='margin:30px;'>";             
+             output+="<div class='card col s9' style='margin:20px;'>";             
               output+="<div >"+img+"</div>";
              output+="<p class='mm'>"+name+"<br/>"+"<span class='mn fa fa-map-marker'>"+location+"</span>"+"</p>";
              output+="<div class='rating'>";

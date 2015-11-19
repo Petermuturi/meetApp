@@ -18,7 +18,7 @@ var Restaurant = Parse.Object.extend("Restaurant");
             }
              // console.log("name: "+name);
              output+="<div class='row'>";
-             output+="<div class='card col s9' style='margin-left:30px;'>";             
+             output+="<div class='card col s9' style='margin-left:20px;'>";             
               output+="<div>"+img+"</div>";
              output+="<p class='mm'>"+name+"<br/>"+"<span class='mn fa fa-map-marker'>"+location+"</span>"+"</p>";
              output+="<div class='rating'>";
