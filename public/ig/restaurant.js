@@ -14,13 +14,16 @@ var Restaurant = Parse.Object.extend("Restaurant");
              if(results[i].get("photo1")){
              var file = results[i].get("photo1");
              var url = file.url();
-              img = "<img style='height:150px;width:290px;'src='"+url+"'>";
+              img = "<img style='height:150px;width:290px;margin-left:-8px;'src='"+url+"'>";
             }
              // console.log("name: "+name);
              output+="<div class='row'>";
-             output+="<div class='card col s10' style='margin:20px;'>";             
-              output+="<div >"+img+"</div>";
-             output+="<p>"+name+"<br/>"+"<span class='fa fa-map-marker'>"+location+"</span>"+"</p>";
+             output+="<div class='card col s9' style='margin-left:30px;'>";             
+              output+="<div>"+img+"</div>";
+             output+="<p class='mm'>"+name+"<br/>"+"<span class='mn fa fa-map-marker'>"+location+"</span>"+"</p>";
+             output+="<div class='rating'>";
+             output+="<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>";
+             output+="</div>";
              output+="</div>";
              output+="</div>";
           }

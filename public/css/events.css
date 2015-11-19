@@ -13,8 +13,38 @@
 .now{
 	color:white;font-size:20px;font-weight:400;
 }
-
-
+.mm{
+	margin-top: -4px;
+	margin-left:-8px;
+	margin-right:-10px; 
+	margin-bottom:-2px; 
+	color:white;
+	background: grey;
+	font-size: 18px;
+	font-weight: 500px;
+}
+.mn{
+	font-size: 5px;
+	color:rgba(255,255,255,0.6);
+}
+.rating {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	font-size: 18px;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   color:#FB7777;
+}
 .no{
 	border:none;
 }
